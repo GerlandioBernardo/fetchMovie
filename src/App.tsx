@@ -1,10 +1,9 @@
-import Header from "./components/Header"
-
+import Home from "./pages/home/Home"
  
 function App() {
   return(
     <div className="min-h-screen bg-black">
-      <Header/>
+      <Home/>
     </div>
   )
 }
