@@ -1,6 +1,7 @@
 import { useModal } from '../hook/useModal';
 import { FaTimes, FaHeart} from "react-icons/fa";
 import { toast } from 'react-toastify';
+import type { typeMovie } from '../types/TypeMovie';
 
 
 export default function Modal() {
@@ -10,11 +11,19 @@ export default function Modal() {
   function addFavorite(){
     if(!selectedMovie) return;
 
-    localStorage.setItem("favoriteMovie", JSON.stringify(selectedMovie));
-    toast.success("Movie added successfully");
+    const favorites:typeMovie[] = JSON.parse(localStorage.getItem("favoriteMovies") || "[]");
 
-    // const favorite = JSON.parse(localStorage.getItem("favoriteMovie") || "null");
-    // console.log(favorite);
+    const alreadyAdded = favorites.some((favorite) => favorite.id === selectedMovie.id);
+    if(!alreadyAdded){
+      favorites.push(selectedMovie);
+      localStorage.setItem("favoriteMovies", JSON.stringify(favorites));
+      toast.success("Movie added successfully");
+    }
+    else {
+      toast.error("Movie is already in favorites");
+    }
+  
+
 
   }
 
