@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Header from '../../components/Header';
 import apiTmdb from '../../services/ApiTmdb';
-import type { typeMovie } from '../../types/TypeMovei';
+import type { typeMovie } from '../../types/TypeMovie';
+import { useModal } from '../../hook/useModal';
 
 export default function Home() {
 
@@ -10,6 +11,8 @@ export default function Home() {
   const [totalPages, setTotalPages] = useState(0);
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
+
+  const {openModal} = useModal();
 
   async function fetchMovies(pageNumber: number){
     try {
@@ -60,6 +63,15 @@ export default function Home() {
 
   }, [query])
 
+  function handleSubmit(id: string){
+    
+    const movie = movies.find(m => m.id === id);
+    if(movie){
+        openModal(movie);
+    }
+
+  }
+
   return (
     <div>
       <Header />
@@ -92,9 +104,9 @@ export default function Home() {
               />
             </div>
             <div >
-               <p className="text-yellow-400 font-bold mb-2">⭐ {movie.vote_average}</p>
+               <p className="text-yellow-400 font-bold mb-2 flex justify-center items-center">⭐ Nota: {movie.vote_average}</p>
             </div>
-            <button className='bg-gradient-to-r from-blue-400 via-blue-700 to-blue-900
+            <button onClick={()=> handleSubmit(movie.id)} className='bg-gradient-to-r from-blue-400 via-blue-700 to-blue-900
             transition-colors ease-in-out duration-500 transform 
              text-white text-[16px] font-bold pt-1.5 pb-1.5 rounded w-50 cursor-pointer 
               hover:-translate-y-[1px] hover:scale-[1.01]'>
