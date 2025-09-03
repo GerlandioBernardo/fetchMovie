@@ -1,18 +1,19 @@
 import { ToastContainer } from "react-toastify";
 import Modal from "./components/Modal";
 import { ModalProvider } from "./context/ModalContext";
-import Home from "./pages/home/Home";
 import "react-toastify/dist/ReactToastify.css";
- 
+import { BrowserRouter } from "react-router-dom";
+import Router from "./routes/Router";
+
 function App() {
-  return(
-    <div className="min-h-screen bg-black">
+  return (
+    <BrowserRouter>
       <ModalProvider>
-          <Home/>
-          <Modal/>
+        <Router/>
+        <Modal />
       </ModalProvider>
-      <ToastContainer/>
-    </div>
+      <ToastContainer />
+    </BrowserRouter>
   )
 }
 
