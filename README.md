@@ -1,5 +1,5 @@
 
-<h1 align="center">fetchMovie: Aplicação web para busca e gerenciamento de filmes</h1>
+<h1 align="center">FetchMovie: Aplicação web para busca e gerenciamento de filmes</h1>
 
 ## Descrição do Projeto
 
