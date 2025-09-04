@@ -1,69 +1,57 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">fetchMovie: Aplicação web para busca e gerenciamento de filmes</h1>
 
-Currently, two official plugins are available:
+## Descrição do Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+FetchMovie é uma aplicação web desenvolvida durante o curso **Desenvolvedor Full Stack Júnior** oferecido pelo +PraTi, com o objetivo de praticar consumo de APIs, manipulação de estados e navegação entre páginas com React.
 
-## Expanding the ESLint configuration
+## Status do Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=BLUE&style=for-the-badge"/>
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## :man_technologist: Tecnologias Utilizadas
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- React
+- Vite
+- TypeScript
+- Node.js
+- TailwindCSS
+- VS Code
+- Git & GitHub
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## :hammer: Funcionalidades
+
+- Busca de filmes – permite pesquisar filmes digitando o título.
+
+- Exibição inicial – apresenta uma lista de filmes populares organizada em paginação numérica.
+
+- Gerenciamento de favoritos – possibilita adicionar e remover filmes como favoritos.
+
+- Página de favoritos – exibe separadamente todos os filmes marcados como favoritos pelo usuário.
+
+## :rocket: Como Rodar o Projeto
+
+### 1️⃣ **Clone este repositório:**
+```bash
+git clone git@github.com:GerlandioBernardo/fetchMovie.git
+cd fetchMovie
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ **Instale as dependências:**
+```bash
+npm install
+```
+### 3️⃣ **Crie um arquivo .env na raiz do projeto e adicione sua chave da API do TMDB:**
+```bash
+VITE_TMDB_API_KEY=sua_api_key_aqui
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 4️⃣ **Execute o projeto:**
+```bash
+npm run dev
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 5️⃣ **Abra no navegador:**
+```bash
+http://localhost:5173
 ```
